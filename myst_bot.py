@@ -16,7 +16,7 @@ bot = telebot.TeleBot(TOKEN_BOT)
 
 #Responses mold
 #buttons array of InlineKeyboardButton
-def SendResponseMold(chat_id, message:str , img_path:str="", buttons=[], markup_rows:int=0):
+def SendResponseTemplate(chat_id, message:str , img_path:str="", buttons=[], markup_rows:int=0):
     markup = None
     if len(buttons) > 0 and len(buttons) > 0:
         markup_rows = markup_rows if markup_rows <= 3 else 3
@@ -46,7 +46,7 @@ async def StartCommand(update: Update, ctx: CallbackContext):
         InlineKeyboardButton('Ayuda 🆘', callback_data='HelpMsg'),
         InlineKeyboardButton('Web 🌐', web_app=WebAppInfo(url=WEB_APP_URL))
     ]
-    SendResponseMold(chat_id=update.message.chat_id, message=text, buttons=buttons, markup_rows=2)
+    SendResponseTemplate(chat_id=update.message.chat_id, message=text, buttons=buttons, markup_rows=2)
 
 
 
@@ -54,7 +54,7 @@ async def TextHandler(update: Update, ctx: CallbackContext):
     bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     res = await AI.ChatModel(update.message.text)
     print(res)
-    SendResponseMold(chat_id=update.message.chat_id, message=res)
+    SendResponseTemplate(chat_id=update.message.chat_id, message=res)
 
 
 
