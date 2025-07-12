@@ -92,10 +92,17 @@ def ContextChat(db, memory, prompt):
 
 
 def main():
-    docs = AI.SplitFile('E:/Rod/Escuela/Universidad/SEM VI/Convocatoria_Movilidad.pdf')
+    files = [
+        'E:/Rod/Escuela/Universidad/SEM VI/Control/Proyecto/Proyecto.pdf',
+        'E:/Rod/Escuela/Universidad/SEM VI/Control/Tareas/Evaluación_de_Control.pdf'
+    ]
+    docs = AI.SliptFiles(files_path=files)
     db = AI.CreateDB(docs=docs)
     memory = AI.ConversationMemory()
-    prompt = AI.PromptTemplate(prompt="Eres un asistente cordial. Si el usuario saluda, agradece o hace una pregunta general, responde sin usar el documento. Si la pregunta es técnica o relacionada con el contenido, responde usando el contexto.")
+    prompt = "Eres un asistente cordial que ofrecerá información a los estudiantes acerca de los fundamentos del control y tu nombre es MystBot" 
+    prompt += "Si el usuario saluda, agradece o hace una pregunta general, responde sin usar los documentos. Si la pregunta es relacionada "
+    prompt += "con el control responde con la información de los documentos"
+    prompt = AI.PromptTemplate(prompt=prompt)
     
     app = ApplicationBuilder().token(TOKEN_BOT).build()
     app.add_handler(CommandHandler("start", StartCommand))

@@ -1,0 +1,34 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "¿Qué es el torque?",
+      "additional_kwargs": {},
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "El torque es una medida de la fuerza que causa rotación en un objeto. Se calcula como la fuerza multiplicada por la distancia desde el eje de giro.",
+      "additional_kwargs": {},
+      "example": false
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "¿Y cómo afecta al motor?",
+      "additional_kwargs": {},
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Un mayor torque permite al motor generar más fuerza de giro, lo cual es útil en situaciones que requieren potencia como subir pendientes o mover cargas pesadas.",
+      "additional_kwargs": {},
+      "example": false
+    }
+  }
+]
